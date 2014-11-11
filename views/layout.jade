@@ -1,0 +1,63 @@
+html
+  head
+    title Evangelical Chinese Church
+    meta(charset="utf-8")
+    meta(name='viewport' content='width=device-width', initial-scale='1.0')
+    link(rel='stylesheet', href='/stylesheets/foundation.min.css')
+    link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css')
+    link(rel="shortcut icon", href="/images/favicon.ico", type="image/x-icon")
+    link(rel="icon", href="/images/favicon.ico", type="image/x-icon")    
+  body
+    .wrapper
+      .contain-to-grid.fixed
+        nav.top-bar(data-topbar) 
+          ul.title-area
+            li.name
+              h1 
+                a(href="/") ECC
+            li.toggle-topbar.menu-icon
+              a(href="#")
+                span &nbsp;
+          section.top-bar-section
+            ul.right
+              li.divider
+              li
+                a(href="/jesus") Who is Jesus?
+              li.divider
+              li
+                a(href="/about") Who We Are
+              li.divider              
+              li
+                a(href="/sunday") Sunday Service
+              li.divider
+              li
+                a(href="/ministries") Connect With Us
+              li.divider
+              li
+                a(href="/events") Events
+              li.divider
+              li
+                a(href="/contact") Contact Us
+              li.divider
+      
+      block content
+      .push
+
+    .footer
+      .row(style="padding-top: 20px;")
+        .columns.large-6
+          p &copy; Evangelical Chinese Church 2014
+        .columns.large-6.footer-icons
+          a(href="https://www.facebook.com/ECCSydney")
+            img(src="/images/icon-fb.png")
+          a(href="/contact")
+            img(src="/images/icon-contact.png")
+
+    script(src='/javascripts/modernizr.min.js')
+    script(src='/javascripts/jquery-2.1.1.min.js')
+    script(src='/javascripts/foundation.min.js')
+    script(src="/javascripts/responsive-nav.min.js")
+    script
+      $(document).foundation();

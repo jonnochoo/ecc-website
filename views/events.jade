@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  .row
+    .hero.columns.large-12
+      a(href="/ministries")
+        img(src="/images/header-events.png", alt="Ministries")
+      hr
+
+  .row
+    each event in events
+      .columns.large-12.event
+        h2= event.name
+        if(event.isOneDayEvent)
+          p
+            i.fa.fa-calendar
+            = event.start
+          p
+            i.fa.fa-clock-o
+            = event.startTime + " - " + event.endTime
+        else
+          p
+            i.fa.fa-clock-o
+            = event.start + " " +event.startTime + " - " + event.end + " " + event.endTime
+        p
+          i.fa.fa-map-marker 
+          = event.location
+        if(event.description)
+          p
+            =event.description
+        hr

@@ -1,0 +1,59 @@
+extends layout
+
+block content
+  .row
+    .hero.columns.large-12
+      a(href="/ministries")
+        img(src="/images/header-ministries.png", alt="Ministries")
+      hr
+      
+  .row
+    .side-nav.columns.large-2
+      ul.nav-secondary
+        li
+          a(href="/ministries/children") Children
+        li
+          a(href="/ministries/youth") Youth
+        li.selection
+          a(href="/ministries/adults") Adults
+          ul.nav-sub
+            li
+              a(href="#yag") Young Adults
+            li
+              a(href="#care-group") Care Groups
+        li
+          a(href="/ministries/church") Church-Wide
+
+    .content.columns.large-9
+      .row
+        .content.columns.large-12
+          h2 Young Adults Group (YAG)
+            a.anchor(name="yag")
+      .row
+        .content.columns.large-4
+          h3 When
+          p Fortnightly
+          h3 Where
+          p  Home of a YAG member
+          h3 Time
+          p 12.30pm
+        .content.columns.large-8         
+          p Young Adults Group (YAG) is a group for people who have finished their tertiary studies and are starting their next stage in life. We use our meetings as an opportunity to share a meal, encourage each other and see what the Bible has to say to us about living as young adults.
+          p Meetings are usually after Sunday Service, where we’ll have lunch at a member’s home. If you are a young adult, or just young at heart and interested in being part of this fellowship, please join us!
+      hr
+
+      .row
+        .content.columns.large-12
+          h2 Care Group
+            a.anchor(name="care-group")
+      .row
+        .content.columns.large-4
+          h3 When
+          p Fortnightly
+          h3 Where
+          p Home of a care group member
+          h3 Time
+          p Dependent on each care group
+        .content.columns.large-8  
+          p Care Groups offer the individual an opportunity to learn more about God, through the study of the bible. For the Christian, the care group reflects church and its purposes at a group level. As a small Christian group, it enables better learning about God and Godliness, greater accountability to practice what you learn, deeper friendship, more opportunity to participate and care for one another.
+      hr       

@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  .row
+    .hero.columns.large-12
+      a(href="/ministries")
+        img(src="/images/header-ministries.png", alt="Ministries")
+      hr
+
+  .row
+    .side-nav.columns.large-2
+      ul.nav-secondary
+        li.selection
+          a(href="/ministries/children") Children
+          ul.nav-sub
+            li
+              a(href="#way2go") Way2Go
+        li
+          a(href="/ministries/youth") Youth
+        li
+          a(href="/ministries/adults") Adults
+        li
+          a(href="/ministries/church") Church-Wide
+
+    .content.columns.large-9
+      .row
+        .content.columns.large-12
+          h2 
+            a(name="way2go") Way2Go (Children)
+      .row
+        .content.columns.large-4
+          h3 When
+          p Sundays
+          h3 Where
+          p church <br/> preschoolers - room G2 <br/> school kids - room G5
+          h3 Time
+          p 9:30-10:45 am first Sunday of the month; otherwise during the sermon
+        .content.columns.large-8          
+          p Way2Go is our children’s ministry program, which aims to introduce Jesus to children and teach the Bible. It is for children from pre-school up to year 6. We seek to integrate the teaching syllabus with fun activities including games, drama, singing, craft, short talks and puppets. Our purpose is to show the children that Jesus loves them and that He is the Way to God.
+          .columns.large-6
+            img(src="/images/photos/children1.jpg", alt="drawing")
+          .columns.large-6
+            img(src="/images/photos/children2.jpg", alt="picture of kid")
