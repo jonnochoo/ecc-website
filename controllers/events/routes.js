@@ -30,14 +30,16 @@ function saveItemsFromCalendar(callback){
         data.items.forEach(function(item){
           var isValid = _.every(ignoreEvents, function(evt){ return item.summary !== evt; });
           if(isValid) {
-            var startMoment = moment(item.start.dateTime);
-            var endMoment = moment(item.end.dateTime);
+            var startMoment = moment(item.start.dateTime || item.start.date);
+            var endMoment = moment(item.end.dateTime || item.end.date);
+            console.log(item.summary);         
+            console.log(startMoment); 
             items.push({
               name:item.summary,
               start: startMoment.format("dddd, MMMM Do YYYY"),
-              startTime: startMoment.format("h:mm a"),
+              startTime: item.start.dateTime ? startMoment.format("h:mm a") : "",
               end: endMoment.format("dddd, MMMM Do YYYY"),
-              endTime: endMoment.format("h:mm a"),
+              endTime: item.end.dateTime ? endMoment.format("h:mm a") : "",
               description: item.description,
               isOneDayEvent: isOneDayEvent(startMoment, endMoment),
               location:item.location || "TBC",
