@@ -1,7 +1,7 @@
 var express = require('express');
 var staticRouter = require('./static');
-var eventRouter = require('./events/routes');
-var contactRouter = require('./contact/routes');
+var eventRouter = require('./events');
+var contactRouter = require('./contact');
 
 var router = express.Router();
 
