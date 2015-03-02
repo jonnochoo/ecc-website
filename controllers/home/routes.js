@@ -1,19 +1,24 @@
 var express = require('express');
+var eventRouter = require('../events/routes');
+var contactRouter = require('../contact/routes');
 
-function setup(app) {
-    app.get('/', function(req, res){ res.render('index', {}) });
-    app.get('/about', function(req, res){ res.render('about', {}) });
-    app.get('/faq', function(req, res){ res.render('faq', {}) });
-    app.get('/jesus', function(req, res){ res.render('jesus', {}) });
-    app.get('/map', function(req, res){ res.render('map', {}) });
-    app.get('/ministries', function(req, res){ res.render('ministries', {}) });
-    app.get('/ministries/adults', function(req, res){ res.render('adults', {}) });
-    app.get('/ministries/children', function(req, res){ res.render('children', {}) });
-    app.get('/ministries/church', function(req, res){ res.render('church-wide', {}) });
-    app.get('/ministries/youth', function(req, res){ res.render('youth', {}) });
-    app.get('/new', function(req, res){ res.render('new', {}) });    
-    app.get('/resources', function(req, res){ res.render('resources', {}) });
-    app.get('/sunday', function(req, res){ res.render('sunday', {}) });
-};
+var router = express.Router();
 
-module.exports = setup;
+router.get('/', function(req, res){ res.render('index', {}) });
+router.get('/about', function(req, res){ res.render('about', {}) });
+router.get('/faq', function(req, res){ res.render('faq', {}) });
+router.get('/jesus', function(req, res){ res.render('jesus', {}) });
+router.get('/map', function(req, res){ res.render('map', {}) });
+router.get('/ministries', function(req, res){ res.render('ministries', {}) });
+router.get('/ministries/adults', function(req, res){ res.render('adults', {}) });
+router.get('/ministries/children', function(req, res){ res.render('children', {}) });
+router.get('/ministries/church', function(req, res){ res.render('church-wide', {}) });
+router.get('/ministries/youth', function(req, res){ res.render('youth', {}) });
+router.get('/new', function(req, res){ res.render('new', {}) });    
+router.get('/resources', function(req, res){ res.render('resources', {}) });
+router.get('/sunday', function(req, res){ res.render('sunday', {}) });
+
+router.use('/events', eventRouter);
+router.use('/contact', contactRouter);
+
+module.exports = router;

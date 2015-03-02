@@ -4,6 +4,12 @@ var nodeMailer = require('nodemailer');
 var Joi = require('joi');
 var contactSchema = require('./contactSchema');
 
+var router = express.Router();
+router.get('/', getContact);
+router.post('/', postContact);
+
+module.exports = router;
+
 function getContact(req, res) {
     res.render('contact', {
         err: null,
@@ -35,10 +41,3 @@ function postContact(req, res) {
         res.redirect('/contact');
     });
 }
-
-function setup(app) {
-    app.get('/contact', getContact);
-    app.post('/contact', postContact);
-};
-
-module.exports = setup;

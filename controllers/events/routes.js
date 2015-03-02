@@ -8,6 +8,12 @@ var _ = require('underscore');
 
 client = redis.createClient(config.redis.port, config.redis.url);
 
+var router = express.Router();
+router.get('/', getEvents);
+router.get('/save', saveEvents);
+
+module.exports = router;
+
 function getEvents(req, res){
   client.get("calendar:events", function(err, data){
     var events = JSON.parse(data);
@@ -15,6 +21,14 @@ function getEvents(req, res){
   });
 };
 
+function saveEvents(req, res){
+  saveItemsFromCalendar(function(err, isSaved){
+    if(err) console.log(err);
+    res.send(200);
+  });
+}
+
+// Private
 function saveItemsFromCalendar(callback){
   getAccessToken(function(err, accessToken){
     if(err) {
@@ -81,15 +95,3 @@ function isOneDayEvent(startMoment, endMoment){
   var endShortDate = endMoment.format(shortDateFormat);
   return startShortDate == endShortDate;
 };
-
-function setup(app) {
-  app.get('/events', getEvents);
-  app.get('/events/save', function(req, res){
-    saveItemsFromCalendar(function(err, isSaved){
-      if(err) console.log(err);
-      res.send(200);
-    });
-  });
-};
-
-module.exports = setup;
