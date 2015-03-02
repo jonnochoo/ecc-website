@@ -1,6 +1,4 @@
 var express = require('express');
-var eventRouter = require('../events/routes');
-var contactRouter = require('../contact/routes');
 
 var router = express.Router();
 
@@ -17,8 +15,5 @@ router.get('/ministries/youth', function(req, res){ res.render('youth', {}) });
 router.get('/new', function(req, res){ res.render('new', {}) });    
 router.get('/resources', function(req, res){ res.render('resources', {}) });
 router.get('/sunday', function(req, res){ res.render('sunday', {}) });
-
-router.use('/events', eventRouter);
-router.use('/contact', contactRouter);
 
 module.exports = router;
