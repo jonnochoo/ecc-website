@@ -1,19 +1,24 @@
 var express = require('express');
+var fs = require('fs');
+var path = require('path');
 
-var router = express.Router();
+module.exports = function(folder) {
+  var finder = require('findit')(folder);
+  var router = express.Router();
+ 
+  finder.on('file', function (file, stat) {
+    var jadeExtension = ".jade";  
+    var extension = path.extname(file);
+      if(extension === jadeExtension) {
+        
+        var templateName = path.relative(folder, file)
+          .replace(jadeExtension, '')
+          .replace('\\', '/');
+        var routeName = '/' + templateName.replace('index', '');
 
-router.get('/', function(req, res){ res.render('index', {}) });
-router.get('/about', function(req, res){ res.render('about', {}) });
-router.get('/faq', function(req, res){ res.render('faq', {}) });
-router.get('/jesus', function(req, res){ res.render('jesus', {}) });
-router.get('/map', function(req, res){ res.render('map', {}) });
-router.get('/ministries', function(req, res){ res.render('ministries', {}) });
-router.get('/ministries/adults', function(req, res){ res.render('adults', {}) });
-router.get('/ministries/children', function(req, res){ res.render('children', {}) });
-router.get('/ministries/church', function(req, res){ res.render('church-wide', {}) });
-router.get('/ministries/youth', function(req, res){ res.render('youth', {}) });
-router.get('/new', function(req, res){ res.render('new', {}) });    
-router.get('/resources', function(req, res){ res.render('resources', {}) });
-router.get('/sunday', function(req, res){ res.render('sunday', {}) });
+        router.get(routeName, function(req, res){ res.render('static/' + templateName, {}) });  
+      }
+  });
 
-module.exports = router;
+  return router;
+};

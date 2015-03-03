@@ -5,7 +5,7 @@ var contactRouter = require('./contact');
 
 var router = express.Router();
 
-router.use('/', staticRouter);
+router.use('/', staticRouter('./views/static'));
 router.use('/events', eventRouter);
 router.use('/contact', contactRouter);
 
