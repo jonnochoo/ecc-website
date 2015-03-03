@@ -1,0 +1,59 @@
+@font-face {
+  font-family: Dense;
+  src: url(/fonts/Dense-Regular.otf);
+}
+
+@font-face {
+  font-family: Bebas Neue;
+  src: url(/fonts/Bebas-Neue.otf);
+}
+
+// Headers
+h1{
+  background-repeat: no-repeat;
+  background-image: url(/images/ecc-logo-full.png);
+  width: 305px;
+  /* Hide the text. */
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+h1 {
+  font-family: $logo-font;
+}
+
+h1 a{
+  font-size: 1.3em;
+  letter-spacing: 3px;
+  color: $header-color;
+}
+
+h2 {
+  color: $header-color;
+  font-family: $header-font;
+}
+
+h2, h2 a{
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h3 {
+  color: #444;
+  font-size: 1em;  
+  font-weight: bold;
+  font-family: $default-font;
+}
+
+a {
+  color: $default-color-link;
+}
+
+a.anchor{
+  display: block; 
+  position: relative; 
+  top: -100px; 
+  visibility: hidden;
+}

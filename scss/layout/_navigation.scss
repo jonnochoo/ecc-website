@@ -1,0 +1,32 @@
+.top-bar.expanded .title-area {
+  background-color: $top-bar-color;
+}
+.top-bar-section li a:not(.button):hover{
+  background-color: #BFBFBF;
+}
+.top-bar .name{
+  padding-top: 5px;
+}
+.contain-to-grid, .top-bar, .top-bar-section ul, .top-bar-section ul li , .top-bar-section li a:not(.button) {
+  color: White;
+  background-color: $top-bar-color;
+}
+.top-bar-section>ul>.divider, .top-bar-section>ul>[role="separator"]{
+  border-color: #FFF;
+}
+
+// row color
+.row-color{
+  background-color: #EDEDED;
+  margin-top: 20px;
+}
+.row-color h2{
+  padding-top: 20px;
+}
+.nav-secondary{
+}
+.nav-secondary li a{
+  font-family: Dense;
+  font-size: 1.6em;
+  letter-spacing: 3px;
+}

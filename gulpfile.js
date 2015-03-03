@@ -1,22 +1,25 @@
 var gulp = require('gulp');
-var less = require('gulp-less');
+var sass = require('gulp-sass');
 var nodemon = require('gulp-nodemon');
 var watch = require('gulp-watch');
 
-gulp.task('default', function() {
-  gulp.watch('public/stylesheets/*.less', ['less']);
+gulp.task('watch', function() {
+  gulp.watch('scss/*.scss', ['sass']);
 });
 
-gulp.task('less', function() {
-  gulp.src('public/stylesheets/*.less')
-    .pipe(less())
-    .pipe(gulp.dest('public/stylesheets'));
+gulp.task('sass', function() {
+  return gulp.src('scss/app.scss')
+    .pipe(sass({ 
+      errLogToConsole: true
+      //includePaths: ['./bower_components/foundation/scss']
+    }))
+    .pipe(gulp.dest('public/css/'));
 });
 
 gulp.task('dev', function () {
   nodemon({ script: 'app.js', ext: 'jade js', ignore: ['gulpfile.js'] })
-    .on('start', ['default'])
-    .on('change', ['less'])
+    .on('start', ['watch'])
+    .on('change', ['sass'])
     .on('restart', function () {
       console.log('restarted!')
     })

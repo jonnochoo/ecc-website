@@ -1,0 +1,24 @@
+// Mini Feature
+.mini-feature{
+  text-align: center;
+  background-color: #78CDCB;
+  padding: 10px;
+}
+.mini-feature:hover{
+  cursor: pointer;
+  background-color: #777;
+}
+
+.mini-feature, .mini-feature h2 {
+  color: White;
+}
+img.mini-feature {
+  margin: 10px 0;
+}
+.mini-feature-icon{
+  background-color: #EDEDED;
+  text-align: center;
+}
+.mini-feature-icon:hover{
+  background-color: #BFBFBF;
+}

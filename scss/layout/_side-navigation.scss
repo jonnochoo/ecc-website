@@ -1,0 +1,21 @@
+.side-nav > ul {  
+  list-style: none;
+}
+.side-nav > ul > li {  
+  border-bottom: 1px solid #DDD;
+}
+// Side Navigation
+.side-nav ul li{
+  font-size:  1rem;
+}
+
+ul.nav-sub li{
+  list-style-type: circle;
+}
+
+ul.nav-sub li a{
+  font-family: $default-font;
+  font-size: .95em;
+  letter-spacing: 0px;
+  font-weight: normal;
+}
