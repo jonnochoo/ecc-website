@@ -47,27 +47,25 @@ a.anchor {
   top: -100px;
   visibility: hidden; }
 
-.mini-feature {
-  text-align: center;
-  background-color: #78CDCB;
-  padding: 10px; }
+li.selection a {
+  font-weight: bold;
+  color: #555; }
 
-.mini-feature:hover {
-  cursor: pointer;
-  background-color: #777; }
+@media all and (min-width: 1024px) {
+  .mini-feature {
+    text-align: center; } }
 
-.mini-feature, .mini-feature h2 {
-  color: White; }
+@media all and (min-width: 1024px) {
+  .mini-feature-light {
+    text-align: center; } }
 
-img.mini-feature {
-  margin: 10px 0; }
-
-.mini-feature-icon {
-  background-color: #EDEDED;
-  text-align: center; }
-
-.mini-feature-icon:hover {
-  background-color: #BFBFBF; }
+@media all and (max-width: 640px) {
+  .mini-feature {
+    margin-bottom: 10px; }
+  .footer, .push {
+    height: 8em; }
+  .footer-icons {
+    text-align: left; } }
 
 body {
   color: #555;
@@ -81,6 +79,28 @@ html, body {
   height: auto !important;
   height: 100%;
   margin: 0 auto -4em; }
+
+* {
+  margin: 0; }
+
+html, body {
+  height: 100%; }
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em; }
+
+.footer {
+  background-color: #353537;
+  color: #999; }
+
+.footer, .push {
+  height: 4em; }
+
+.footer-icons {
+  text-align: right; }
 
 .top-bar.expanded .title-area {
   background-color: #6ACECC; }
@@ -110,16 +130,6 @@ html, body {
   font-size: 1.6em;
   letter-spacing: 3px; }
 
-.banner {
-  text-align: center; }
-
-.hero {
-  margin-top: 30px;
-  text-align: center; }
-
-.hero {
-  margin-top: 30px; }
-
 .side-nav > ul {
   list-style: none; }
 
@@ -138,27 +148,16 @@ ul.nav-sub li a {
   letter-spacing: 0px;
   font-weight: normal; }
 
-* {
-  margin: 0; }
+ul.what-we-believe > li {
+  margin-left: 20px;
+  margin-bottom: .75em;
+  list-style: lower-roman; }
 
-html, body {
-  height: 100%; }
+.map-info {
+  text-align: center; }
 
-.wrapper {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto -4em; }
-
-.footer {
-  background-color: #353537;
-  color: #999; }
-
-.footer, .push {
-  height: 4em; }
-
-.footer-icons {
-  text-align: right; }
+.map-info p {
+  margin-bottom: 5px; }
 
 .event p {
   margin-bottom: 10px; }
@@ -169,8 +168,28 @@ p.location {
 i {
   margin-right: 10px; }
 
-.map-info {
+.hero {
+  margin-top: 30px;
   text-align: center; }
 
-.map-info p {
-  margin-bottom: 5px; }
+.mini-feature {
+  text-align: center;
+  background-color: #78CDCB;
+  padding: 10px; }
+
+.mini-feature:hover {
+  cursor: pointer;
+  background-color: #777; }
+
+.mini-feature, .mini-feature h2 {
+  color: White; }
+
+img.mini-feature {
+  margin: 10px 0; }
+
+.mini-feature-icon {
+  background-color: #EDEDED;
+  text-align: center; }
+
+.mini-feature-icon:hover {
+  background-color: #BFBFBF; }

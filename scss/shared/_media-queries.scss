@@ -1,0 +1,23 @@
+@media all and (min-width: 1024px){
+  .mini-feature {
+    text-align: center;
+  }
+}
+
+@media all and (min-width: 1024px){
+  .mini-feature-light {
+    text-align: center;
+  }
+}
+
+@media all and (max-width: 640px){
+  .mini-feature{
+    margin-bottom: 10px;    
+  }
+  .footer, .push {
+    height:8em;
+  }
+  .footer-icons{
+    text-align: left;
+  }
+}

@@ -1,11 +1,12 @@
 @import 'shared/variables';
 @import 'shared/typography';
-@import 'shared/mini-feature';
+@import 'shared/media-queries';
 @import 'layout/body';
-@import 'layout/navigation';
-@import 'layout/banner';
-@import 'layout/side-navigation';
 @import 'layout/footer';
+@import 'layout/navigation';
+@import 'layout/side-navigation';
+@import 'pages/about';
+@import 'pages/contact';
 @import 'pages/events';
 @import 'pages/faq';
-@import 'pages/contact';
+@import 'pages/home';
