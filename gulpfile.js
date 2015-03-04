@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var minifycss = require('gulp-minify-css');
 var nodemon = require('gulp-nodemon');
 var watch = require('gulp-watch');
 
@@ -10,9 +11,11 @@ gulp.task('watch', function() {
 gulp.task('sass', function() {
   return gulp.src('scss/app.scss')
     .pipe(sass({ 
-      errLogToConsole: true
-      //includePaths: ['./bower_components/foundation/scss']
+      errLogToConsole: true,
+      includePaths: ['./bower_components/foundation/scss']
     }))
+    .pipe(gulp.dest('public/css/'))
+    .pipe(minifycss())
     .pipe(gulp.dest('public/css/'));
 });
 
