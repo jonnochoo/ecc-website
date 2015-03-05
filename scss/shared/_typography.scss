@@ -3,11 +3,6 @@
   src: url(/fonts/Dense-Regular.otf);
 }
 
-@font-face {
-  font-family: Bebas Neue;
-  src: url(/fonts/Bebas-Neue.otf);
-}
-
 h1{
   background-repeat: no-repeat;
   background-image: url(/images/ecc-logo-full.png);
@@ -16,7 +11,6 @@ h1{
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
-  font-family: $logo-font;
 }
 
 h1 a{
