@@ -5,9 +5,7 @@ var path = require('path');
 module.exports = function(viewsFolder, staticFolder) {
   
   staticFolder = staticFolder || 'static';
-  if(!path.isAbsolute(viewsFolder)) {
-    viewsFolder = path.join('.', viewsFolder, staticFolder);
-  }
+  viewsFolder = path.join('.', viewsFolder, staticFolder);
 
   var finder = require('findit')(viewsFolder);
   var router = express.Router();
