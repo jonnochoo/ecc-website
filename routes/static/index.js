@@ -2,22 +2,28 @@ var express = require('express');
 var fs = require('fs');
 var path = require('path');
 
-module.exports = function(folder) {
-  var finder = require('findit')(folder);
+module.exports = function(viewsFolder, staticFolder) {
+  
+  staticFolder = staticFolder || 'static';
+  if(!path.isAbsolute(viewsFolder)) {
+    viewsFolder = path.join('.', viewsFolder, staticFolder);
+  }
+
+  var finder = require('findit')(viewsFolder);
   var router = express.Router();
- 
+  
   finder.on('file', function (file, stat) {
     var jadeExtension = ".jade";  
-    var extension = path.extname(file);
-      if(extension === jadeExtension) {
-        
-        var templateName = path.relative(folder, file)
-          .replace(jadeExtension, '')
-          .replace('\\', '/');
-        var routeName = '/' + templateName.replace('index', '');
+    if(path.extname(file) === jadeExtension) {
 
-        router.get(routeName, function(req, res){ res.render('static/' + templateName, {}) });  
-      }
+      var relativeName = path.relative(viewsFolder, file)
+        .replace(jadeExtension, '')
+        .replace('\\', '/');
+      var routeName = '/' + relativeName.replace('index', '');
+      var templatePath = path.join(staticFolder, relativeName);
+      
+      router.get(routeName, function(req, res){ res.render(templatePath, {}) });  
+    }
   });
 
   return router;
