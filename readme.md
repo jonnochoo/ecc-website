@@ -15,10 +15,9 @@ Run the following via the command line in the root of the project.
 
 1. *npm install*
 2. *npm install -g gulp*
-3. Copy _config.js to config.js
+3. Copy config.default.js to config.js
 4. Enter the respective configuration in config.js
 5. *gulp dev*
-
 
 **Notes**
 
