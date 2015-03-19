@@ -17,6 +17,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', staticRouter(viewFolder));
 app.use('/', routes);
 
+app.use(function(req, res){
+  res.status(404);
+  res.render('404');
+});
+
 app.listen(port, function(){
   console.log('Express server listening on port ' + port);
 });
