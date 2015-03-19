@@ -23,7 +23,7 @@ gulp.task('sass', function() {
 
 // gulp-nodemon
 gulp.task('nodemon', function () {
-  nodemon({ script: 'app.js', ext: 'jade js', ignore: ['gulpfile.js'] })    
+  nodemon({ script: 'app.js', ext: 'js', ignore: ['gulpfile.js'] })    
     .on('restart', notify.onError({
       message: 'server has restarted'
     }))
