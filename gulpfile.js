@@ -1,11 +1,14 @@
+var concat = require('gulp-concat');
 var gulp = require('gulp');
-var sass = require('gulp-sass');
-var minifycss = require('gulp-minify-css');
 var nodemon = require('gulp-nodemon');
+var sass = require('gulp-sass');
+var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
 
+gulp.task('default', ['nodemon', 'watch'])
+
 gulp.task('watch', function() {
-  gulp.watch('scss/*.scss', ['sass']);
+  gulp.watch('scss/**/*.scss', ['sass']);
 });
 
 gulp.task('sass', function() {
@@ -14,16 +17,19 @@ gulp.task('sass', function() {
       errLogToConsole: true,
       includePaths: ['./bower_components/foundation/scss']
     }))
-    .pipe(gulp.dest('public/css/'))
-    .pipe(minifycss())
     .pipe(gulp.dest('public/css/'));
 });
 
-gulp.task('dev', function () {
+gulp.task('nodemon', function () {
   nodemon({ script: 'app.js', ext: 'jade js', ignore: ['gulpfile.js'] })
-    .on('start', ['watch'])
-    .on('change', ['sass'])
     .on('restart', function () {
       console.log('restarted!')
     })
 })
+
+gulp.task('build', function(){
+    return gulp.src(['public/js/*.js'])
+        .pipe(concat('app.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/js'));
+});
