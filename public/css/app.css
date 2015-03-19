@@ -1,1 +1,178 @@
-body,h3{font-family:"Open Sans","Lucida Grande",Helvetica,Arial,sans-serif}@font-face{font-family:Dense;src:url(/fonts/Dense-Regular.otf)}h1{background-repeat:no-repeat;background-image:url(/images/ecc-logo-full.png);width:305px;text-indent:100%;white-space:nowrap;overflow:hidden}h1 a{font-size:1.3em;letter-spacing:3px;color:#333}h2{font-family:Dense}h2,h2 a{color:#555;text-transform:uppercase;letter-spacing:2px}h3{color:#444;font-size:1em;font-weight:700}a{color:#00B7FF}a.anchor{display:block;position:relative;top:-100px;visibility:hidden}li.selection a{font-weight:700;color:#555}@media all and (min-width:1024px){.mini-feature,.mini-feature-light{text-align:center}}@media all and (max-width:640px){.mini-feature{margin-bottom:10px}.footer,.push{height:8em}.footer-icons{text-align:left}}body{color:#555}body,html{height:100%}.wrapper{min-height:100%;height:100% auto!important;margin:0 auto -4em}.footer{background-color:#353537;color:#999}.footer,.push{height:4em}.footer-icons{text-align:right}.hero,.map-info,.mini-feature{text-align:center}.top-bar.expanded .title-area{background-color:#6ACECC}.top-bar-section li a:not(.button):hover{background-color:#BFBFBF}.top-bar .name{padding-top:5px}.contain-to-grid,.top-bar,.top-bar-section li a:not(.button),.top-bar-section ul,.top-bar-section ul li{color:#fff;background-color:#6ACECC}.top-bar-section>ul>.divider,.top-bar-section>ul>[role=separator]{border-color:#FFF}.row-color{background-color:#EDEDED;margin-top:20px}.row-color h2{padding-top:20px}.nav-secondary li a{font-family:Dense;font-size:1.6em;letter-spacing:3px}.side-nav>ul{list-style:none}.side-nav>ul>li{border-bottom:1px solid #DDD}.side-nav ul li{font-size:1rem}ul.nav-sub li{list-style-type:circle}ul.nav-sub li a{font-family:"Open Sans","Lucida Grande",Helvetica,Arial,sans-serif;font-size:.95em;letter-spacing:0;font-weight:400}ul.what-we-believe>li{margin-left:20px;margin-bottom:.75em;list-style:lower-roman}.map-info p{margin-bottom:5px}.event p{margin-bottom:10px}p.location{margin-bottom:5px}i{margin-right:10px}.hero{margin-top:30px}.mini-feature{background-color:#78CDCB;padding:10px}.mini-feature:hover{cursor:pointer;background-color:#777}.mini-feature,.mini-feature h2{color:#fff}img.mini-feature{margin:10px 0}.mini-feature-icon{background-color:#EDEDED;text-align:center}.mini-feature-icon:hover{background-color:#BFBFBF}
+@font-face {
+  font-family: Dense;
+  src: url(/fonts/Dense-Regular.otf); }
+
+h1 {
+  background-repeat: no-repeat;
+  background-image: url(/images/ecc-logo-full.png);
+  width: 305px;
+  /* Hide the text. */
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden; }
+
+h1 a {
+  font-size: 1.3em;
+  letter-spacing: 3px;
+  color: #333333; }
+
+h2 {
+  color: #333333;
+  font-family: 'Dense'; }
+
+h2, h2 a {
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 2px; }
+
+h3 {
+  color: #444;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: "Open Sans", "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: -100px;
+  visibility: hidden; }
+
+li.selection a {
+  font-weight: bold;
+  color: #555; }
+
+@media all and (min-width: 1024px) {
+  .mini-feature {
+    text-align: center; } }
+
+@media all and (min-width: 1024px) {
+  .mini-feature-light {
+    text-align: center; } }
+
+@media all and (max-width: 640px) {
+  .mini-feature {
+    margin-bottom: 10px; }
+  .footer, .push {
+    height: 8em; }
+  .footer-icons {
+    text-align: left; } }
+
+body {
+  color: #555;
+  font-family: "Open Sans", "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+html, body {
+  height: 100%; }
+
+.wrapper {
+  min-height: 100%;
+  height: 100% auto !important;
+  margin: 0 auto -4em; }
+
+.footer {
+  background-color: #353537;
+  color: #999; }
+
+.footer, .push {
+  height: 4em; }
+
+.footer-icons {
+  text-align: right; }
+
+.top-bar.expanded .title-area {
+  background-color: #6ACECC; }
+
+.top-bar-section li a:not(.button):hover {
+  background-color: #BFBFBF; }
+
+.top-bar .name {
+  padding-top: 5px; }
+
+.contain-to-grid, .top-bar, .top-bar-section ul, .top-bar-section ul li, .top-bar-section li a:not(.button) {
+  color: White;
+  background-color: #6ACECC; }
+
+.top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"] {
+  border-color: #FFF; }
+
+.row-color {
+  background-color: #EDEDED;
+  margin-top: 20px; }
+
+.row-color h2 {
+  padding-top: 20px; }
+
+.nav-secondary li a {
+  font-family: Dense;
+  font-size: 1.6em;
+  letter-spacing: 3px; }
+
+.side-nav > ul {
+  list-style: none; }
+
+.side-nav > ul > li {
+  border-bottom: 1px solid #DDD; }
+
+.side-nav ul li {
+  font-size: 1rem; }
+
+ul.nav-sub li {
+  list-style-type: circle; }
+
+ul.nav-sub li a {
+  font-family: "Open Sans", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: .95em;
+  letter-spacing: 0px;
+  font-weight: normal; }
+
+ul.what-we-believe > li {
+  margin-left: 20px;
+  margin-bottom: .75em;
+  list-style: lower-roman; }
+
+.map-info {
+  text-align: center; }
+
+.map-info p {
+  margin-bottom: 5px; }
+
+.error {
+  padding-top: 5px; }
+
+.event p {
+  margin-bottom: 10px; }
+
+p.location {
+  margin-bottom: 5px; }
+
+i {
+  margin-right: 10px; }
+
+.hero {
+  margin-top: 30px;
+  text-align: center; }
+
+.mini-feature {
+  text-align: center;
+  background-color: #78CDCB;
+  padding: 10px; }
+
+.mini-feature:hover {
+  cursor: pointer;
+  background-color: #777; }
+
+.mini-feature, .mini-feature h2 {
+  color: White; }
+
+img.mini-feature {
+  margin: 10px 0; }
+
+.mini-feature-icon {
+  background-color: #EDEDED;
+  text-align: center; }
+
+.mini-feature-icon:hover {
+  background-color: #BFBFBF; }
