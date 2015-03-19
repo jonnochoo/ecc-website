@@ -2,7 +2,6 @@ var config = require('../../config');
 var express = require('express');
 var nodeMailer = require('nodemailer');
 var Joi = require('joi');
-var contactSchema = require('./contactSchema');
 
 var router = express.Router();
 router.get('/', getContact);
@@ -17,27 +16,25 @@ function getContact(req, res) {
     });
 }
 
-function postContact(req, res) {
-    var err = Joi.validate(req.body, contactSchema);
-    if (err) {
-        console.log(err);
-        res.render('contact', {
-            err: err,
-            data: req.body
-        });
-        return;
-    }
+function postContact(req, res) {    
+    var subject = 'Message From ECC Website: ' + req.body.name;
+    var body = req.body.message;
+    var from = req.body.from;
 
-    var smtpTransport = nodeMailer.createTransport("SMTP", config.mail);
-    var mailOptions = {
-        to: config.mail.to,
-        from: req.body.from,
-        subject: 'Message From ECC Website: ' + req.body.name,
-        text: req.body.message
-    }
-    smtpTransport.sendMail(mailOptions, function(err, response) {
-        if (err) console.log(err);
-
+    sendMail(subject, body, from, function(err) {
         res.redirect('/contact');
+    });
+}
+
+function sendMail(subject, body, from, callback) {
+    var smtpTransport = nodeMailer.createTransport(config.mail);
+    var mailOptions = { 
+        to: config.mail.to,
+        from: from,
+        subject: subject,
+        html: body
+    };
+    smtpTransport.sendMail(mailOptions, function(err, response) {
+        callback(err);
     });
 }
