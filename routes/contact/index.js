@@ -1,7 +1,6 @@
 var config = require('../../config');
 var express = require('express');
 var nodeMailer = require('nodemailer');
-var Joi = require('joi');
 
 var router = express.Router();
 router.get('/', getContact);
