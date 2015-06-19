@@ -1,6 +1,5 @@
-var config = require('../../config');
 var express = require('express');
-var nodeMailer = require('nodemailer');
+var email = require('../../lib/email');
 
 var router = express.Router();
 router.get('/', getContact);
@@ -15,25 +14,14 @@ function getContact(req, res) {
     });
 }
 
-function postContact(req, res) {    
+function postContact(req, res, next) {    
     var subject = 'Message From ECC Website: ' + req.body.name;
     var body = req.body.message;
     var from = req.body.from;
 
-    sendMail(subject, body, from, function(err) {
+    email.send(subject, body, from, function(err) {
+        if(err) next(err);
+        
         res.redirect('/contact');
-    });
-}
-
-function sendMail(subject, body, from, callback) {
-    var smtpTransport = nodeMailer.createTransport(config.mail);
-    var mailOptions = { 
-        to: config.mail.to,
-        from: from,
-        subject: subject,
-        html: body
-    };
-    smtpTransport.sendMail(mailOptions, function(err, response) {
-        callback(err);
     });
 }
