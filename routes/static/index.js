@@ -11,7 +11,7 @@ module.exports = function(viewsFolder, staticFolder) {
   var router = express.Router();
   
   finder.on('file', function (file, stat) {
-    var jadeExtension = ".jade";  
+    var jadeExtension = '.jade';  
     if(path.extname(file) === jadeExtension) {
 
       var relativeName = path.relative(viewsFolder, file)

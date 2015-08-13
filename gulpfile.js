@@ -1,8 +1,9 @@
 var gulp = require('gulp');
 var nodemon = require('gulp-nodemon');
-var notify = require("gulp-notify");
+var notify = require('gulp-notify');
 var sass = require('gulp-sass');
 var watch = require('gulp-watch');
+var eslint = require('gulp-eslint');
 
 gulp.task('default', ['nodemon', 'sass-watch'])
 
@@ -18,7 +19,7 @@ gulp.task('sass', function() {
       includePaths: ['./bower_components/foundation/scss']
     }))
     .pipe(gulp.dest('public/css/'))
-    .pipe(notify("SASS recompiled"));
+    .pipe(notify('SASS recompiled'));
 });
 
 // gulp-nodemon
@@ -28,3 +29,10 @@ gulp.task('nodemon', function () {
       message: 'server has restarted'
     }))
 })
+
+gulp.task('lint', function () {
+  return gulp.src(['**/*.js', '!**/public/js/*.js'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failOnError());
+});

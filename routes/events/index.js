@@ -15,15 +15,18 @@ router.get('/save', saveEvents);
 module.exports = router;
 
 function getEvents(req, res){
-  client.get("calendar:events", function(err, data){
+  client.get('calendar:events', function(err, data){
     var events = JSON.parse(data);
     res.render('events', { events : events || [] });
   });
-};
+}
 
 function saveEvents(req, res){
   saveItemsFromCalendar(function(err, isSaved){
-    if(err) console.log(err);
+    if(err) {
+      console.log(err);
+    }
+
     res.send(200);
   });
 }
@@ -39,7 +42,7 @@ function saveItemsFromCalendar(callback){
       gcal(accessToken).events.list(config.googleCalendar.calendarId, values, function(err, data) {
         if(err) { return console.log(err); }
 
-        var ignoreEvents = ["Sunday Service", "WACD", "WACD Thanksgiving Night"];
+        var ignoreEvents = ['Sunday Service', 'WACD', 'WACD Thanksgiving Night'];
         var items = [];
         data.items.forEach(function(item){
           var isValid = _.every(ignoreEvents, function(evt){ return item.summary !== evt; });
@@ -50,19 +53,19 @@ function saveItemsFromCalendar(callback){
             console.log(startMoment); 
             items.push({
               name:item.summary,
-              start: startMoment.format("dddd, MMMM Do YYYY"),
-              startTime: item.start.dateTime ? startMoment.format("h:mm a") : "",
-              end: endMoment.format("dddd, MMMM Do YYYY"),
-              endTime: item.end.dateTime ? endMoment.format("h:mm a") : "",
+              start: startMoment.format('dddd, MMMM Do YYYY'),
+              startTime: item.start.dateTime ? startMoment.format('h:mm a') : '',
+              end: endMoment.format('dddd, MMMM Do YYYY'),
+              endTime: item.end.dateTime ? endMoment.format('h:mm a') : '',
               description: item.description,
               isOneDayEvent: isOneDayEvent(startMoment, endMoment),
-              location:item.location || "TBC",
+              location:item.location || 'TBC',
               id:item.id
             });
           }
         });
         var json = JSON.stringify(items);
-        client.set("calendar:events", json, redis.print);
+        client.set('calendar:events', json, redis.print);
       });
       callback(err, true);
     }
@@ -87,11 +90,11 @@ function getAccessToken(callback){
       callback(null, r.access_token);
     }
   });
-};
+}
 
 function isOneDayEvent(startMoment, endMoment){
-  var shortDateFormat = "YYYY-MM-D";
+  var shortDateFormat = 'YYYY-MM-D';
   var startShortDate = startMoment.format(shortDateFormat);
   var endShortDate = endMoment.format(shortDateFormat);
   return startShortDate == endShortDate;
-};
+}
