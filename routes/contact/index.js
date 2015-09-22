@@ -19,11 +19,12 @@ function postContact(req, res, next) {
   var body = req.body.message;
   var from = req.body.from;
 
-  email.send(subject, body, from, function(err) {
-    if(err) {
-      next(err);  
-    }
-    
+  // Save to database...
+  // Keen?
+
+  email.sendAsync(subject, body, from).then(function() {
     res.redirect('/contact');
+  }).catch(function(err) {
+    next(err);
   });
 }
