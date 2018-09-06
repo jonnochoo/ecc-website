@@ -22,7 +22,10 @@ block content
         label Message
         textarea(name="message", placeholder="Enter your message", required)=data.message
 
-        input(type="submit", value="Send").button
+        div(class="g-recaptcha", data-sitekey="6LcWwm4UAAAAAJqSoE7mtryqpxUjG6fAzTQpNaTI", data-callback="recaptchaCallback")
+        br
+
+        input(id="submit", type="submit", value="Send", disabled).button
 
     .columns.large-6
       .map-info        
@@ -35,3 +38,8 @@ block scripts
   script(src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js")
   script
     $("form").validate();
+  script.
+    function recaptchaCallback() {
+      $('#submit').removeAttr('disabled');
+      $('#submit').removeClass('disabledButton');
+    };    
