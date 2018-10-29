@@ -3,29 +3,9 @@ extends layout
 block content
   .row
     .hero.columns.large-12
-      a(href="/ministries")
+      a(href="/events")
         img(src="/images/header-events.png", alt="Events", height="121px", width="489px")
       hr
 
   .row
-    each event in events
-      .columns.large-12.event
-        h2= event.name
-        if(event.isOneDayEvent)
-          p
-            i.fa.fa-calendar
-            = event.start
-          p
-            i.fa.fa-clock-o
-            = event.startTime + " - " + event.endTime
-        else
-          p
-            i.fa.fa-clock-o
-            = event.start + " " +event.startTime + " - " + event.end + " " + event.endTime
-        p
-          i.fa.fa-map-marker 
-          = event.location
-        if(event.description)
-          p
-            =event.description
-        hr
+    iframe(src="https://calendar.google.com/calendar/embed?src=8gica5rsdqrin9ljt7pa2b202s%40group.calendar.google.com&ctz=Australia%2FSydney", style="border-width:0", width="1000", height="600", frameborder="0",   scrolling="no")
