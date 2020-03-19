@@ -15,7 +15,7 @@
     "moment": "^2.6.0",
     "nodemailer": "^2.3.0",
     "redis": "0.10.1",
-    "request": "2.34.0",
+    "request": "2.88.2",
     "underscore": "1.6.0"
   },
   "devDependencies": {
